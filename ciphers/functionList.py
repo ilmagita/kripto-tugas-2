@@ -12,4 +12,12 @@ def char_to_ascii(ch):
 
     return uc
 
-print(type(char_to_ascii('a')))
+def ascii_to_char(ch):
+    uc = chr(ch)
+
+    return uc
+
+def binary_to_string(array):
+    string = "".join(ascii_to_char(val) for val in array)
+    return string
+#print(type(char_to_ascii('a')))
