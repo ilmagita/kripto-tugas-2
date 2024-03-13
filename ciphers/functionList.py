@@ -43,6 +43,15 @@ def read_binary_file(file):
     content = f.read()
     return content
 
-def save_file(cipherText, fileName):
+def read_text_file(file):
+    f = open(file,'r')
+    content = f.read()
+    return content
+
+def save_binary_file(cipherText, fileName):
     with open(fileName, 'wb') as f:
+        f.write(cipherText)
+        
+def save_text_file(cipherText, fileName):
+    with open(fileName, 'w') as f:
         f.write(cipherText)
