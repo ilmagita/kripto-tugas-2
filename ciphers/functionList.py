@@ -42,7 +42,3 @@ def read_binary_file(file):
     f = open(file,'rb')
     content = f.read()
     return content
-
-def save_file(cipherText, fileName):
-    with open(fileName, 'wb') as f:
-        f.write(cipherText)
