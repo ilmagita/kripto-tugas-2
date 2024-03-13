@@ -1,4 +1,5 @@
 # functions.py
+import base64
 
 def text_to_binary(string):
     s = []
@@ -21,3 +22,27 @@ def binary_to_string(array):
     string = "".join(ascii_to_char(val) for val in array)
     return string
 #print(type(char_to_ascii('a')))
+
+def utf8_to_base64(utf8_text):
+    return base64.b64encode(utf8_text.encode("utf-8")).decode("utf-8")
+
+def base64_to_utf8(base64_text):
+    utf8_text = base64.b64decode(base64_text).decode("utf-8")
+    return utf8_text
+
+def binary_data_to_int_array(binary_data):
+    array_of_integers = [int(byte) for byte in binary_data]
+    return array_of_integers
+
+def int_array_to_binary_data(array_of_integers):
+    binary_data = bytes(array_of_integers)
+    return binary_data
+
+def read_binary_file(file):
+    f = open(file,'rb')
+    content = f.read()
+    return content
+
+def save_file(cipherText, fileName):
+    with open(fileName, 'wb') as f:
+        f.write(cipherText)
