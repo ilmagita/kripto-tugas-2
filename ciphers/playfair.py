@@ -93,7 +93,7 @@ def playfair_encrypt_bigram(playfair_key, bigram):
 
         return cipher_bigram
 
-def playfair_encryption(plaintext_input='temui ibu nanti malam', cipherkey_input='jalan ganesha sepuluh'):
+def playfair_encryption(plaintext_input, cipherkey_input):
     plaintext_bigram_list = str_to_playfair_bigram_list(plaintext_input)
     cipherkey_matrix = str_to_playfair_key(cipherkey_input)
 
@@ -133,7 +133,7 @@ def playfair_decrypt_bigram(playfair_key, bigram):
 
         return cipher_bigram
     
-def playfair_decryption(plaintext_input='ZBRSFYKUPGLGRKVSNLQV', cipherkey_input='jalan ganesha sepuluh'):
+def playfair_decryption(plaintext_input, cipherkey_input):
     plaintext_bigram_list = str_to_playfair_bigram_list(plaintext_input)
     cipherkey_matrix = str_to_playfair_key(cipherkey_input)
 
@@ -146,11 +146,7 @@ def playfair_decryption(plaintext_input='ZBRSFYKUPGLGRKVSNLQV', cipherkey_input=
     ch_str = ''.join([''.join(inner) for inner in ch_list])
     return ch_str
 
-# result = playfair_encryption('ilma ke pasar', 'test')
-# print(result)
-# res = playfair_decryption('jmnb*`s▼r_☺`{Q', 'test')
-# print(str_to_playfair_key('test'))
-
+#playfair_key = test
 playfair_key = [[116, 101, 115, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
                 [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
                 [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
@@ -168,4 +164,7 @@ playfair_key = [[116, 101, 115, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
                 [225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240],
                 [241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256]]
 
-print(playfair_decrypt_bigram(playfair_key, 'jm'))
+result = playfair_encryption('perginya ke pasar', 'test')
+print(result)
+result_d = playfair_decryption(result, 'test')
+print(result_d)
