@@ -1,5 +1,5 @@
 from functionList import *
-
+import base64
 
 def swap (arr,i,j):
     arr[i], arr[j] = arr[j],arr[i]
@@ -11,7 +11,7 @@ def ksa (key):
     j = 0
     
     for i in range(256):
-        j = (j + s[i] + key[ i % len(key)]) % 256
+        j = (j + s[i] + ord(key[ i % len(key)])) % 256
         swap(s,i,j)
         
     return s
@@ -30,15 +30,11 @@ def prga(s, plain):
         cipherChar = u ^ plain[idx]
         cipher.append(cipherChar)
     
-    print(cipher)
     cipher = binary_to_string(cipher)
         
     return cipher
 
-
-
 def rc4(plain,key):
-    key = text_to_binary(key)
     plain = text_to_binary(plain)
     
     s = ksa(key)
@@ -46,16 +42,40 @@ def rc4(plain,key):
     
     return result
 
-key = "kenjjio"
-plain = "tsawadikap"
-ciphertext = ".§Ì{|içb"
+def utf8_to_base64(utf8_text):
+    return base64.b64encode(utf8_text.encode("utf-8")).decode("utf-8")
 
-hasil = rc4(plain,key)
-hasil2 = rc4(hasil,key)
-hasil3 = rc4(ciphertext,key)
-print(hasil)
-print(hasil2)
-print(hasil3)
+def base64_to_utf8(base64_text):
+    utf8_text = base64.b64decode(base64_text).decode("utf-8")
+    return utf8_text
+
+def encryption(plain,key):
+    hasil = rc4(plain,key)
+    hasil = utf8_to_base64(hasil)
+    return hasil
+
+def decryption(plain,key):
+    "Hanya dapat menerima text dengan tipe base 64"
+    plain = base64_to_utf8(plain)
+    hasil = rc4(plain,key)
+    return hasil
+
+
+key = "if20"
+plain = "ilmagita punya pacar baru, busy and booked"
+cipher = "w7fCocK3wrvCtA/DhMOrwqM/w7fDvcO7e8KkwoFLw7rCj8OPw6vCrcKuwpDDjl5cI8Odw4F3wobCoybDngJEVcKtw43CmVE="
+
+
+ciphertext = encryption(plain,key)
+plaintext = decryption(ciphertext,key)
+
+
+print(ciphertext)
+print(plaintext)
+
+
+
+
 
         
     
