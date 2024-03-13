@@ -1,4 +1,5 @@
 from functionList import *
+from playfair import *
 
 def swap (arr,i,j):
     arr[i], arr[j] = arr[j],arr[i]
@@ -43,7 +44,8 @@ def prga(s, plain, key):
 def rc4(plain,key):
     plain = text_to_binary(plain)
     
-
+    s = playfair_ksa(key)
+    result = binary_to_string(prga(s,plain,key))
     
     return result
 
@@ -62,7 +64,27 @@ def decryption(plain,key):
 def rc4_binary_file(fileName,key):
     filename_type = fileName[-4:]
     filename_ori = fileName[:-4]
+    s = playfair_ksa(key)
+    plain = read_binary_file(fileName)
+    plain = binary_data_to_int_array(plain)
+    result = prga(s,plain,key)
+    result = int_array_to_binary_data(result)
+    save_binary_file(result, f'{filename_ori}_rc4_{filename_type}')
+    
+def rc4_enc_text_file(fileName,key):
+    filename_type = fileName[-4:]
+    filename_ori = fileName[:-4]
+    plain = read_text_file(fileName)
+    result = encryption(plain,key)
+    save_text_file(result, f'{filename_ori}_rc4{filename_type}')
 
+def rc4_dec_text_file(fileName,key):
+    "hanya menerima base64 text file "
+    filename_type = fileName[-4:]
+    filename_ori = fileName[:-4]
+    plain = read_text_file(fileName)
+    result = decryption(plain,key)
+    save_text_file(result, f'{filename_ori}_rc4{filename_type}')
 
 key = "if20"
 plain = "ilmagita S.T 2004?"
@@ -80,11 +102,6 @@ cipher = "w7fCocK3wrvCtA/DhMOrwqM/w7fDvcO7e8KkwoFLw7rCj8OPw6vCrcKuwpDDjl5cI8Odw4
 
 #print(ciphertext)
 #print(plaintext)
-
-rc4_binary_file('ciphers/foto.png',key)
-rc4_binary_file('ciphers/foto_rc4_.png',key)
-
-
 
 
 
