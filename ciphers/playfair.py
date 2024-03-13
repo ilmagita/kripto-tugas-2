@@ -164,7 +164,7 @@ playfair_key = [[116, 101, 115, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
                 [225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240],
                 [241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256]]
 
-result = playfair_encryption('perginya ke pasar', 'test')
-print(result)
-result_d = playfair_decryption(result, 'test')
-print(result_d)
+# result = playfair_encryption('perginya ke pasar', 'test')
+# print(f'-{result}-')
+# result_d = playfair_decryption(result, 'test')
+# print(result_d)
