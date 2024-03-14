@@ -2,9 +2,10 @@
 
 ## Members
 
-Nama               | NIM      | Github
+Nama               | NIM      | Github Username
 -------------------|----------|--------
 Ilmagita Nariswari | 18221101 | ilmagita
+Ken Azizan         | 18221107 | Kenazin01
 
 ## How to Run
 
