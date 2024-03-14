@@ -54,6 +54,7 @@ class MainApp(QMainWindow):
             self.fileNameTextBox.show()
             self.fileNameLabel.show()
             self.saveOutputButton.hide()
+            self.fileSavedAutomaticallyText.show()
 
             self.inputTextBox.hide()
             self.inputTextLabel.hide()

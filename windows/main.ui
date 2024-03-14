@@ -194,7 +194,7 @@
      <item row="11" column="1">
       <widget class="QLabel" name="fileSavedAutomaticallyText">
        <property name="text">
-        <string>File will be saved automatically as you encrypt/decrypt.</string>
+        <string>Files other than .txt types will be saved automatically as you encrypt/decrypt.</string>
        </property>
       </widget>
      </item>
