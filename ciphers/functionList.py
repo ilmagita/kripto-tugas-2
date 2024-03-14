@@ -1,5 +1,6 @@
 # functions.py
 import base64
+import os
 
 def text_to_binary(string):
     s = []
@@ -55,3 +56,18 @@ def save_binary_file(cipherText, fileName):
 def save_text_file(cipherText, fileName):
     with open(fileName, 'w') as f:
         f.write(cipherText)
+
+def get_file_name(filepath):
+    name_without_extension = os.path.splitext(filepath)[0]
+    return name_without_extension
+
+def get_file_type(filepath):
+    basename = os.path.basename(filepath)
+    _, extension = os.path.splitext(basename)
+
+    return extension
+
+def get_base_file_name(filepath):
+    basename = os.path.basename(filepath)
+    basename_without_extension = os.path.splitext(filepath)[0]
+    return basename_without_extension

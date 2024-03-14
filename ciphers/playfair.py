@@ -1,6 +1,4 @@
 ## MODIFIED PLAYFAIR CYPHER
-from functionList import text_to_binary, char_to_ascii
-from math import ceil
 
 ## HELPER FUNCTIONS
 def str_to_playfair_key(string):

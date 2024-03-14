@@ -1,5 +1,5 @@
-from functionList import *
-from playfair import *
+from ciphers.functionList import *
+from ciphers.playfair import *
 
 def swap (arr,i,j):
     arr[i], arr[j] = arr[j],arr[i]
@@ -61,30 +61,35 @@ def decryption(plain,key):
     return hasil
 
 
-def rc4_binary_file(fileName,key):
-    filename_type = fileName[-4:]
-    filename_ori = fileName[:-4]
+def rc4_binary_file(fileName, key, save_path):
+    filename_type = get_file_type(fileName)
+    filename_ori = get_base_file_name(fileName)
     s = playfair_ksa(key)
     plain = read_binary_file(fileName)
     plain = binary_data_to_int_array(plain)
     result = prga(s,plain,key)
     result = int_array_to_binary_data(result)
-    save_binary_file(result, f'{filename_ori}_rc4_{filename_type}')
+    # save_binary_file(result, f'{filename_ori}_rc4_{filename_type}')
+    save_binary_file(result, save_path)
     
 def rc4_enc_text_file(fileName,key):
-    filename_type = fileName[-4:]
-    filename_ori = fileName[:-4]
+    filename_type = get_file_type(fileName)
+    filename_ori = get_base_file_name(fileName)
     plain = read_text_file(fileName)
     result = encryption(plain,key)
-    save_text_file(result, f'{filename_ori}_rc4{filename_type}')
+    # save_text_file(result, f'{filename_ori}_rc4{filename_type}')
+
+    return result
 
 def rc4_dec_text_file(fileName,key):
     "hanya menerima base64 text file "
-    filename_type = fileName[-4:]
-    filename_ori = fileName[:-4]
+    filename_type = get_file_type(fileName)
+    filename_ori = get_base_file_name(fileName)
     plain = read_text_file(fileName)
     result = decryption(plain,key)
-    save_text_file(result, f'{filename_ori}_rc4{filename_type}')
+    # save_text_file(result, f'{filename_ori}_rc4{filename_type}')
+
+    return result
 
 key = "if20"
 plain = "ilmagita S.T 2004?"

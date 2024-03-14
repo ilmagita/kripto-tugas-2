@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>842</height>
+    <height>894</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -55,19 +55,19 @@
       <x>20</x>
       <y>100</y>
       <width>751</width>
-      <height>661</height>
+      <height>731</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
+     <item row="1" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Input type</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QComboBox" name="comboBox">
+     <item row="1" column="1">
+      <widget class="QComboBox" name="inputSelection">
        <item>
         <property name="text">
          <string>Text (from keyboard)</string>
@@ -80,40 +80,40 @@
        </item>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="fileNameTextBox"/>
      </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_4">
+     <item row="5" column="0">
+      <widget class="QLabel" name="inputTextLabel">
        <property name="text">
         <string>Text</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QPlainTextEdit" name="plainTextEdit"/>
+     <item row="5" column="1">
+      <widget class="QPlainTextEdit" name="inputTextBox"/>
      </item>
-     <item row="5" column="0">
+     <item row="7" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
         <string>Key</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QPlainTextEdit" name="plainTextEdit_2"/>
+     <item row="7" column="1">
+      <widget class="QPlainTextEdit" name="keyTextBox"/>
      </item>
-     <item row="6" column="1">
+     <item row="8" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QPushButton" name="encrypt_button">
+        <widget class="QPushButton" name="encryptButton">
          <property name="text">
           <string>Encrypt</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="decrypt_button">
+        <widget class="QPushButton" name="decryptButton">
          <property name="text">
           <string>Decrypt</string>
          </property>
@@ -121,34 +121,80 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_5">
+     <item row="3" column="0">
+      <widget class="QLabel" name="fileNameLabel">
        <property name="text">
         <string>File name</string>
        </property>
       </widget>
      </item>
-     <item row="7" column="1">
-      <widget class="QPlainTextEdit" name="plainTextEdit_3"/>
+     <item row="10" column="1">
+      <widget class="QPlainTextEdit" name="outputTextBox"/>
      </item>
-     <item row="7" column="0">
+     <item row="10" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
         <string>Output</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="1">
-      <widget class="QPushButton" name="pushButton_2">
+     <item row="12" column="1">
+      <widget class="QPushButton" name="saveOutputButton">
        <property name="text">
         <string>Save output as file</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="pushButton">
+     <item row="4" column="1">
+      <widget class="QPushButton" name="browseFileButton">
        <property name="text">
         <string>Browse File</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="6" column="1">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="9" column="1">
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="fileSavedAutomaticallyText">
+       <property name="text">
+        <string>File will be saved automatically as you encrypt/decrypt.</string>
        </property>
       </widget>
      </item>
@@ -161,7 +207,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
