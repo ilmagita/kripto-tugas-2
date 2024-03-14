@@ -93,6 +93,13 @@ class MainApp(QMainWindow):
     def onEncryptButtonClicked(self):
         input_key = self.keyTextBox.toPlainText()
 
+        if not input_key.strip():
+            msg_box = QMessageBox()
+            msg_box.setWindowTitle('Error')
+            msg_box.setText('You must enter a key!')
+            msg_box.exec_()
+            return
+
         if self.index == 0: # text
             input_text = self.inputTextBox.toPlainText()
             output = encryption(input_text, input_key)
@@ -119,6 +126,13 @@ class MainApp(QMainWindow):
 
     def onDecryptButtonClicked(self):
         input_key = self.keyTextBox.toPlainText()
+
+        if not input_key.strip():
+            msg_box = QMessageBox()
+            msg_box.setWindowTitle('Error')
+            msg_box.setText('You must enter a key!')
+            msg_box.exec_()
+            return
 
         if self.index == 0: # text
             input_text = self.inputTextBox.toPlainText()
